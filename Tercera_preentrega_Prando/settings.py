@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'usuarios',
+    'publicaciones',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,8 @@ ROOT_URLCONF = 'Tercera_preentrega_Prando.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [f'{BASE_DIR}/usuarios/templates'],
+        'DIRS': [f'{BASE_DIR}/usuarios/templates',
+                f'{BASE_DIR}/publicaciones/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

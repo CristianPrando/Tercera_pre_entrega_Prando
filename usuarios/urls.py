@@ -20,5 +20,7 @@ from .views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', inicio),
-]
+    path('', inicio, name='inicio'),
+    path('nuevo_usuario/', nuevo_usuario, name='nuevo_usuario'),
+    path('iniciar_sesion/', iniciar_sesion, name='iniciar_sesion'),
+    ]
