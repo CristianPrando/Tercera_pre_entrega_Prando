@@ -23,4 +23,6 @@ urlpatterns = [
     path('', inicio, name='inicio'),
     path('nuevo_usuario/', nuevo_usuario, name='nuevo_usuario'),
     path('iniciar_sesion/', iniciar_sesion, name='iniciar_sesion'),
+    path('Sobrenosotros/', SobreNosotros, name='SobreNosotros'),
+    path('Comencemos/', Post_inicio_sesion, name='Comencemos'),
     ]

@@ -1,0 +1,22 @@
+{% extends 'padre.html' %}
+{% block titulo %}
+    Bienvenido {{usuario}}
+{% endblock titulo %}
+
+{% block cambios1 %}
+    
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="fw-bolder">Bienvenido/a {{ usuario }}!</h1>
+            <p class="lead mb-0">Inicia sesión para obtener todos los beneficios de la web!</p>
+                <ul class="list mb-0">
+                    <li><a href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a></li>
+                </ul>
+        </div>
+    </div>
+</header>
+
+
+{% endblock cambios1 %}
+    
