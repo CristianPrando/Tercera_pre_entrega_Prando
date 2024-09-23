@@ -26,5 +26,7 @@ urlpatterns = [
     path('iniciar_sesion/', iniciar_sesion, name='iniciar_sesion'),
     path('Sobrenosotros/', SobreNosotros, name='SobreNosotros'),
     path('Comencemos/', Post_inicio_sesion, name='Comencemos'),
-    path('cerrar-sesion/', auth_views.LogoutView.as_view(next_page='inicio'), name='logout'),
+    path('crear_perfil/', crear_perfil, name='crear_perfil'),
+    path('perfil/<int:perfil_id>/', mostrar_perfil, name='mostrar_perfil'),
+    path('buscar_perfil/', buscar_perfil, name='buscar_perfil'),
     ]

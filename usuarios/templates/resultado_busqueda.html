@@ -1,0 +1,22 @@
+{% extends 'padre.html' %}
+
+{% block cambios1 %}
+  
+  <p>Busqueda: {{apellido}}</p>
+
+  
+  {% if nombre%}
+    <ul>
+      {% for nombre in perfil %}
+        <li>{{perfil.nombre}} - {{perfil.apellido}}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No se encontraron perfiles con esos datos</p>
+
+  {% endif %}
+    
+
+    
+  
+{% endblock cambios1 %}

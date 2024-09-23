@@ -1,0 +1,13 @@
+{% extends 'padre.html' %}
+
+{% block cambios1 %}
+  
+  <form action="{% url 'buscar_perfil' %}" method="get">
+
+    <p>Buscar usuario por apellido: <input type="text" name="apellido"></p>
+
+    <button type="submit">Buscar</button>
+
+  </form>
+  
+{% endblock cambios1 %}

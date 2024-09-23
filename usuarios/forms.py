@@ -18,3 +18,11 @@ class Formulario_alta_usuario(forms.Form):
         if Usuario.objects.filter(usuario=usuario).exists():
             raise forms.ValidationError("El nombre de usuario ya existe. Por favor, elige otro.")
         return usuario
+  
+class Formulario_crear_perfil(forms.Form):
+    
+    nombre = forms.CharField(max_length=100)
+    apellido = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    biografia = forms.CharField(widget=forms.Textarea, required=False)
+

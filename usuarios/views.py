@@ -1,10 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import *
 from .forms import *
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 
@@ -51,3 +49,34 @@ def Post_inicio_sesion(req):
 
 def SobreNosotros(req):
     return render(req, 'Sobre_nosotros.html', {})
+
+def crear_perfil(req):
+    if req.method == 'POST':
+        crear_perfil_form = Formulario_crear_perfil(req.POST)
+        if crear_perfil_form.is_valid():
+            data = crear_perfil_form.cleaned_data
+            nuevo_perfil = Perfil(
+                nombre=data["nombre"],
+                apellido=data["apellido"],
+                email=data["email"],
+                biografia=data["biografia"],
+            )
+            nuevo_perfil.save()
+            return render(req, "mostrar_perfil.html", {"usuario": data["nombre"]})
+        else:
+            return render(req, "crear_perfil.html", {"crear_perfil_form": crear_perfil_form})
+    else:
+        crear_perfil_form = Formulario_crear_perfil()
+        return render(req, "crear_perfil.html", {"crear_perfil_form": crear_perfil_form})
+
+def mostrar_perfil(req, perfil_id):
+    perfil = get_object_or_404(Perfil, id=perfil_id)
+    return render(req, 'mostrar_perfil.html', {'perfil': perfil})
+
+def buscar_perfil(req):
+
+  prof = req.GET["apellido"]
+
+  nombre = Perfil.objects.filter(apellido__icontains=prof)
+
+  return render(req, "resultado_busqueda.html", { "nombre": nombre, "apellido": prof})

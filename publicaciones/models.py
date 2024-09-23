@@ -11,4 +11,4 @@ class Publicacion(models.Model):
     apellido = models.ForeignKey(Perfil, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.apellido} - {self.apellido}'
+        return f'{self.titulo} - {self.apellido}'

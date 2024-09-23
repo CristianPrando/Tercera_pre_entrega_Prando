@@ -1,1 +1,57 @@
-{% include 'navbar2.html' %}       
+{% extends 'padre.html' %}
+{% block titulo %}
+    Bienvenido a La Bitacora
+{% endblock titulo %}
+
+
+{% block navbar1 %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="{% url 'inicio' %}">La Bitacora</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'inicio' %}">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'SobreNosotros' %}">Publicaciones</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'SobreNosotros' %}">Perfil</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'nuevo_usuario' %}">Hola {{usuario}}</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock navbar1 %}
+    
+{% block cambios1 %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card text-center mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Completar Perfil</h5>
+                    <a href="{% url 'crear_perfil' %}" class="btn btn-primary">Ir</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Ver Perfil</h5>
+                    <a href="{% url 'mostrar_perfil' perfil_id=1 %}" class="btn btn-primary">Ir</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Crear Publicación</h5>
+                    <a href="{% url 'crear_publicacion' %}" class="btn btn-primary">Ir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock cambios1 %}
+    
