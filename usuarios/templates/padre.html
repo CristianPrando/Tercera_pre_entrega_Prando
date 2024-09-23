@@ -19,13 +19,16 @@
     </head>
     <body>
         <!-- Responsive navbar-->
-
+        
+        {% block navbar1 %}
         {% include 'navbar.html' %}
+        {% endblock navbar1 %}
+            
         
         
         {% block cambios1 %}
             
-        
+ 
         <!-- Page header with logo and tagline-->
         <header class="py-5 bg-light border-bottom mb-4">
             <div class="container">
@@ -42,10 +45,12 @@
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <div style="text-align: center;">
+                        <a href="#!"><img class="card-img-top" src="{% static 'assets/images/psicologia.jpg' %}" style="width: 600px; height: 400px;" alt="..." /></a>
+                        </div>
                         <div class="card-body">
                             <div class="small text-muted">20 de septiembre de 2024</div>
-                            <h2 class="card-title">Título de la publicación</h2>
+                            <h2 class="card-title">La Bitacora, un nuevo espacio de Psicoanálsis</h2>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
                             <a class="btn btn-primary" href="#!">Leer más →</a>
                         </div>

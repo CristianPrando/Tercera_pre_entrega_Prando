@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from .models import *
 from .forms import *
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 
@@ -44,9 +46,8 @@ def iniciar_sesion(req):
         return render(req, 'iniciar_sesion.html', {'error': 'Usuario o contraseña incorrectos'})
     else:
         return render(req, 'iniciar_sesion.html')
+def Post_inicio_sesion(req):
+    return render(req, 'Post_inicio_sesion.html', {})
 
 def SobreNosotros(req):
     return render(req, 'Sobre_nosotros.html', {})
-
-def Post_inicio_sesion(req):
-    return render(req, 'Post_inicio_sesion.html', {})
