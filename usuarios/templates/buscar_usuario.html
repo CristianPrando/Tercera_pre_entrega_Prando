@@ -1,14 +1,18 @@
 {% extends 'padre.html' %}
 
+{% block titulo %}
+  Búsqueda Usuarios
+{% endblock titulo %}
+  
 {% block cambios1 %}
   
-  <p>Busqueda: {{usuario}}</p>
+  <h3>Lista de usuarios</h3>
 
   
   {% if usuarios %}
     <ul>
       {% for usuario in usuarios %}
-        <li>Nombre de usuario: {{usuario.usuario}}</li>
+        <li>Nombre de usuario: {{usuario.usuario}} - ¿Es profesional? {{usuario.profesional}} - Fecha de registro: {{usuario.fecha_registro}}</li>
       {% endfor %}
     </ul>
   {% else %}

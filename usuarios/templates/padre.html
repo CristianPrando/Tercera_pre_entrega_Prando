@@ -34,7 +34,7 @@
             <div class="container">
                 <div class="text-center my-5">
                     <h1 class="fw-bolder">Bienvenido a La Bitacora!</h1>
-                    <p class="lead mb-0">El Blog dedicado a la actualidad psicológica</p>
+                    <h2 class="lead mb-0">Un lugar para pensarnos</h2>
                 </div>
             </div>
         </header>
@@ -126,24 +126,9 @@
                                 <div class="input-group">
                                     <input class="form-control" type="text" name="q" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" value="{{ request.GET.q }}">
                                     <button class="btn btn-primary" id="button-search" type="submit">Buscar</button>
+                                    <button class="btn btn-primary" id="button-search" type="submit">Ver todos</button>
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                    <!-- Categories widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Categorías</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <ul class="list mb-0">
-                                        <li><a href="{% url 'psicoanalisis' %}">Psicoanálisis</a></li>
-                                        <li><a href="{% url 'clinica' %}">Clínica</a></li>
-                                        <li><a href="{% url 'cognitivoconductual' %}">Cognitivo-Conductual</a></li>
-                                        <li><a href="{% url 'sistemica' %}">Sistémica</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <!-- Side widget-->
@@ -154,19 +139,40 @@
                                 <div class="input-group">
                                     <input class="form-control" type="text" name="q" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" value="{{ request.GET.q }}">
                                     <button class="btn btn-primary" id="button-search" type="submit">Buscar</button>
+                                    <button class="btn btn-primary" id="button-search" type="submit">Ver todos</button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="card mb-4"></div>
+                    <div class="card mb-4">
                         <div class="card-header">Buscar usuario por nombre</div>
                         <div class="card-body">
                             <form method="GET" action="{% url 'buscar_usuario' %}">
                                 <div class="input-group">
                                     <input class="form-control" type="text" name="q" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" value="{{ request.GET.q }}">
                                     <button class="btn btn-primary" id="button-search" type="submit">Buscar</button>
+                                    <button class="btn btn-primary" id="button-search" type="submit">Ver todos</button>
                                 </div>
                             </form>
+                        </div>
+                    </div>
+                            <!-- Categories widget-->
+                             
+                            <div class="card mb-4">
+                                <div class="card-header">Categorías</div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <ul class="list mb-0">
+                                                <li><a href="{% url 'psicoanalisis' %}">Psicoanálisis</a></li>
+                                                <li><a href="{% url 'clinica' %}">Clínica</a></li>
+                                                <li><a href="{% url 'cognitivoconductual' %}">Cognitivo-Conductual</a></li>
+                                                <li><a href="{% url 'sistemica' %}">Sistémica</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

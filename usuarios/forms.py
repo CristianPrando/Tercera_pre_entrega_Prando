@@ -1,11 +1,11 @@
 from django import forms
 from .models import Usuario
-from django.contrib.auth.forms import AuthenticationForm
 
 class Formulario_alta_usuario(forms.Form):
 
   usuario = forms.CharField(max_length=20)
   contrasenia = forms.CharField(max_length=20, widget=forms.PasswordInput)
+  profesional = forms.BooleanField(required=False)
 
   def clean_contrasenia(self):
         contrasenia = self.cleaned_data.get('contrasenia')
@@ -22,6 +22,7 @@ class Formulario_alta_usuario(forms.Form):
 class Formulario_crear_perfil(forms.Form):
     nombre = forms.CharField(max_length=100)
     apellido = forms.CharField(max_length=100)
+    matricula = forms.CharField(max_length=20, required=False)
     email = forms.EmailField()
     biografia = forms.CharField(widget=forms.Textarea, required=False)
 

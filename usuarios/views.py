@@ -19,8 +19,9 @@ def nuevo_usuario(req):
             data = crear_usuario.cleaned_data
             nuevousuario = Usuario(
                 usuario=data["usuario"],
-                contrasenia=data["contrasenia"]
-            )
+                contrasenia=data["contrasenia"],
+                profesional=data["profesional"]
+                )
             nuevousuario.save()
             return render(req, "Saludonuevousuario.html", {"usuario": data["usuario"]})
         else:
@@ -62,6 +63,7 @@ def crear_perfil(req):
                 apellido=data["apellido"],
                 email=data["email"],
                 biografia=data["biografia"],
+                matricula=data["matricula"],
             )
             nuevo_perfil.save()
             return render(req, "perfilcreado.html", {"usuario": data["nombre"]})
