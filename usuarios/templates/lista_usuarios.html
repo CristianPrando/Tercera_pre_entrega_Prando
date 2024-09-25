@@ -1,0 +1,20 @@
+{% extends 'padre.html' %}
+{% block titulo %}
+    Lista de usuarios
+{% endblock titulo %}
+
+{% block cambios1 %}
+  
+  <h1>Lista de usuarios</h1>
+
+  <ul>
+    {% for usuarios in usuario %}
+      <li>
+        Nombre de usuario: {{ usuario.nombre }}
+      </li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'nuevo_usuario' %}">Nuevo usuario</a>
+
+{% endblock cambios1 %}

@@ -1,13 +1,46 @@
 {% extends 'padre.html' %}
 {% block titulo %}
-    Crear Publicación
+    Crear Publicacion
 {% endblock titulo %}
 {% block cambios1 %}
-<div class="container py-5">
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="fw-bolder">Bienvenido a la seccion creativa!</h1>
+            <p class="lead mb-0">Complete el formulario abajo con los datos necesarios para crear su publicacion</p>
+        </div>
+    </div>
+</header>
+<div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h1 class="fw-bolder">Crear Publicación</h1>
-            <!-- Formulario para crear una publicación -->
+        <div class="col-md-6">
+            <form action="{% url 'publicacioncreada' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="nombre">Titulo</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" maxlength="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Categoría</label>
+                    <input type="text" name="apellido" id="apellido" class="form-control" maxlength="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="biografia">Texto de su publicacion</label>
+                    <textarea name="biografia" id="biografia" class="form-control" rows="4"></textarea>
+                </div>
+                {% if crear_publicacion_form.errors %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for field in crear_publicacion_form %}
+                                {% for error in field.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+                <button type="submit" class="btn btn-primary w-100">Crear publicacion</button>
+            </form>
         </div>
     </div>
 </div>

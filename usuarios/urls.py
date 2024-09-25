@@ -18,15 +18,25 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path
 from .views import *
+from publicaciones.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio, name='inicio'),
     path('nuevo_usuario/', nuevo_usuario, name='nuevo_usuario'),
+    path('lista_usuarios/', lista_usuarios, name='lista_usuarios'),
+    path('buscar_usuario/', buscar_usuario, name='buscar_usuario'),
     path('iniciar_sesion/', iniciar_sesion, name='iniciar_sesion'),
     path('Sobrenosotros/', SobreNosotros, name='SobreNosotros'),
     path('Comencemos/', Post_inicio_sesion, name='Comencemos'),
     path('crear_perfil/', crear_perfil, name='crear_perfil'),
-    path('perfil/<int:perfil_id>/', mostrar_perfil, name='mostrar_perfil'),
-    path('buscar_perfil/', buscar_perfil, name='buscar_perfil'),
+    path('lista_profesionales/', lista_profesionales, name='lista_profesionales'),
+    path('buscar_profesionales/', buscar_profesionales, name='buscar_profesionales'),
+    path('crear_publicacion', crear_publicacion, name='crear_publicacion'),
+    path('buscar_publicacion/', buscar_publicacion, name='buscar_publicacion'),
+    path('lista_publicaciones/', lista_publicaciones, name='lista_publicaciones'),
+    path('psicoanalisis', psicoanalisis, name='psicoanalisis'),
+    path('sistemica', sistemica, name='sistemica'),
+    path('cognitivoconductual', cognitivo_conductual, name='cognitivoconductual'),
+    path('clinica', clinica, name='clinica'),
     ]

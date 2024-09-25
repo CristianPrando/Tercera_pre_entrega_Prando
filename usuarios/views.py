@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
 from .forms import *
@@ -8,6 +8,9 @@ from django.contrib import messages
 
 def inicio(req):
     return render(req, 'inicio.html', {})
+
+def SobreNosotros(req):
+    return render(req, 'Sobre_nosotros.html', {})
 
 def nuevo_usuario(req):
     if req.method == 'POST':
@@ -44,11 +47,10 @@ def iniciar_sesion(req):
         return render(req, 'iniciar_sesion.html', {'error': 'Usuario o contraseña incorrectos'})
     else:
         return render(req, 'iniciar_sesion.html')
+    
 def Post_inicio_sesion(req):
     return render(req, 'Post_inicio_sesion.html', {})
 
-def SobreNosotros(req):
-    return render(req, 'Sobre_nosotros.html', {})
 
 def crear_perfil(req):
     if req.method == 'POST':
@@ -62,21 +64,46 @@ def crear_perfil(req):
                 biografia=data["biografia"],
             )
             nuevo_perfil.save()
-            return render(req, "mostrar_perfil.html", {"usuario": data["nombre"]})
+            return render(req, "perfilcreado.html", {"usuario": data["nombre"]})
         else:
             return render(req, "crear_perfil.html", {"crear_perfil_form": crear_perfil_form})
     else:
         crear_perfil_form = Formulario_crear_perfil()
         return render(req, "crear_perfil.html", {"crear_perfil_form": crear_perfil_form})
 
-def mostrar_perfil(req, perfil_id):
-    perfil = get_object_or_404(Perfil, id=perfil_id)
-    return render(req, 'mostrar_perfil.html', {'perfil': perfil})
+def lista_profesionales(req):
+    perfiles = Perfil.objects.all()
+    return render(req, 'lista_profesionales.html', {'perfiles': perfiles})
 
-def buscar_perfil(req):
+def buscar_profesionales(req):
+    query = req.GET.get('q')
+    if query:
+        perfiles = Perfil.objects.filter(apellido__icontains=query)
+    else:
+        perfiles = Perfil.objects.all()
+    return render(req, 'lista_profesionales.html', {'perfiles': perfiles})
 
-  prof = req.GET["apellido"]
+def lista_usuarios(req):
+    usuarios = Usuario.objects.all()
+    return render(req, 'lista_usuarios.html', {'usuarios': usuarios})
 
-  nombre = Perfil.objects.filter(apellido__icontains=prof)
+def buscar_usuario(req):
+    query = req.GET.get('q')
+    if query:
+        usuario = Usuario.objects.filter(usuario__icontains=query)
+    else:
+        usuario = Usuario.objects.all()
+    return render(req, 'buscar_usuario.html', {'usuarios': usuario})
 
-  return render(req, "resultado_busqueda.html", { "nombre": nombre, "apellido": prof})
+def psicoanalisis(req):
+    return render(req, 'psicoanalisis.html', {})
+
+def clinica(req):
+    return render(req, 'clinica.html', {})
+
+def cognitivo_conductual(req):
+    return render(req, 'cognitivoconductual.html', {})
+
+def sistemica(req):
+    return render(req, 'sistemica.html', {})
+

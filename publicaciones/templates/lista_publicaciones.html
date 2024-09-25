@@ -1,0 +1,20 @@
+{% extends 'padre.html' %}
+{% block titulo %}
+    Lista de publicaciones
+{% endblock titulo %}
+
+{% block cambios1 %}
+  
+  <h1>Lista de publicaciones</h1>
+
+  <ul>
+    {% for publicacion in publicaciones %}
+      <li>
+        Título: {{ publicacion.titulo }} - Categoría: {{ publicacion.categoria }} - Texto: {{ publicacion.texto }}
+      </li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'crear_publicacion' %}">Nueva publicacion</a>
+
+{% endblock cambios1 %}

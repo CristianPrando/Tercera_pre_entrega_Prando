@@ -20,9 +20,11 @@ class Formulario_alta_usuario(forms.Form):
         return usuario
   
 class Formulario_crear_perfil(forms.Form):
-    
     nombre = forms.CharField(max_length=100)
     apellido = forms.CharField(max_length=100)
     email = forms.EmailField()
     biografia = forms.CharField(widget=forms.Textarea, required=False)
 
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        return email

@@ -22,4 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio),
     path('crear_publicacion/', crear_publicacion, name='crear_publicacion'),
+    path('buscar_publicacion/', buscar_publicacion, name='buscar_publicacion'),
+    path('lista_publicaciones/', lista_publicaciones, name='lista_publicaciones'),
+    path('publicacioncreada/', publicacioncreada, name='publicacioncreada'),
 ]

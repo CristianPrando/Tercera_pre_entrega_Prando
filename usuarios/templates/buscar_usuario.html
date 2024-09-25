@@ -1,0 +1,22 @@
+{% extends 'padre.html' %}
+
+{% block cambios1 %}
+  
+  <p>Busqueda: {{usuario}}</p>
+
+  
+  {% if usuarios %}
+    <ul>
+      {% for usuario in usuarios %}
+        <li>Nombre de usuario: {{usuario.usuario}}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No se encontraron publicaciones con esos datos</p>
+
+  {% endif %}
+    
+
+    
+  
+{% endblock cambios1 %}

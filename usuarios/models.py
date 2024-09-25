@@ -1,10 +1,12 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
 class Usuario(models.Model):
     usuario = models.CharField(max_length=20)
     contrasenia = models.CharField(max_length=20)
+    fecha_registro = models.DateField(default=timezone.now)
 
     def __str__(self):
         return f'{self.usuario}'
@@ -18,3 +20,4 @@ class Perfil(models.Model):
 
     def __str__(self):
         return f'{self.nombre} {self.apellido}'
+    

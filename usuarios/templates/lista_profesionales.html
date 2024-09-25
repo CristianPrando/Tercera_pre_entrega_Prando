@@ -1,0 +1,20 @@
+{% extends 'padre.html' %}
+{% block titulo %}
+    Lista de profesionales
+{% endblock titulo %}
+
+{% block cambios1 %}
+  
+  <h1>Lista de profesionales</h1>
+
+  <ul>
+    {% for perfil in perfiles %}
+      <li>
+        Nombre y apellido: {{ perfil.nombre }} {{ perfil.apellido }} - Email: {{ perfil.email }} - Biografía: {{ perfil.biografia }}
+      </li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'nuevo_usuario' %}">Nuevo usuario</a>
+
+{% endblock cambios1 %}
