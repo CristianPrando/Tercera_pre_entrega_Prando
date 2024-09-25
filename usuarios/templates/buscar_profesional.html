@@ -1,0 +1,26 @@
+{% extends 'padre.html' %}
+
+{% block titulo %}
+  Búsqueda Usuarios
+{% endblock titulo %}
+  
+{% block cambios1 %}
+  
+  <h3>Lista de profesionales</h3>
+
+  
+  {% if perfiles %}
+    <ul>
+      {% for perfil in perfiles %}
+        <li>Nombre y apellido: {{ perfil.nombre }} {{ perfil.apellido }} - Matrícula: {{perfil.matricula}} - Email: {{ perfil.email }} - Biografía: {{ perfil.biografia }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No se encontraron publicaciones con esos datos</p>
+
+  {% endif %}
+    
+
+    
+  
+{% endblock cambios1 %}

@@ -56,7 +56,7 @@ def buscar_publicacion(req):
         publicaciones = Publicacion.objects.filter(titulo__icontains=query)
     else:
         publicaciones = Publicacion.objects.all()
-    return render(req, 'lista_publicaciones.html', {'publicaciones': publicaciones})
+    return render(req, 'buscar_publicacion.html', {'publicaciones': publicaciones})
 
 def lista_publicaciones(req):
     publicaciones = Publicacion.objects.all()

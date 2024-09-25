@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from .models import *
 from .forms import *
 from django.contrib import messages
@@ -49,10 +48,6 @@ def iniciar_sesion(req):
     else:
         return render(req, 'iniciar_sesion.html')
     
-def Post_inicio_sesion(req):
-    return render(req, 'Post_inicio_sesion.html', {})
-
-
 def crear_perfil(req):
     if req.method == 'POST':
         crear_perfil_form = Formulario_crear_perfil(req.POST)
@@ -83,7 +78,7 @@ def buscar_profesionales(req):
         perfiles = Perfil.objects.filter(apellido__icontains=query)
     else:
         perfiles = Perfil.objects.all()
-    return render(req, 'lista_profesionales.html', {'perfiles': perfiles})
+    return render(req, 'buscar_profesional.html', {'perfiles': perfiles})
 
 def lista_usuarios(req):
     usuarios = Usuario.objects.all()

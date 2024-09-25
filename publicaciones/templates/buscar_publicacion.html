@@ -2,12 +2,12 @@
 
 {% block cambios1 %}
   
-  <p>Busqueda: {{titulo}}</p>
+<h3>Lista de publicaciones</h3>
 
   
-  {% if titulo%}
+  {% if publicaciones%}
     <ul>
-      {% for titulo in publicacion %}
+      {% for publicacion in publicaciones %}
         <li>{{publicacion.titulo}} - {{publicacion.categoria}} - {{publicacion.texto}}</li>
       {% endfor %}
     </ul>

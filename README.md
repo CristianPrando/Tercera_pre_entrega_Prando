@@ -4,3 +4,7 @@ El recorrido a través del sitio puede darse de diferentes maneras, aunque quiza
 3. Luego, volviendo a la barra de navegación, podemos acceder a 'Sobre Nosotros', donde se puede ver una breve descripción de los objetivos del sitio.
 4. Además, hay 3 botones, todos interrelacionados, aunque se recomienda primero 'Registrarse', luego 'Iniciar Sesión' y, por último, ingresar en 'Nueva Publicación'. Luego de registrarse e iniciar sesión, se podrá completar el 'Perfil', donde podrá asentarse si uno es profesional o no. Los 3  formularios (registro, publicación y perfil) guardan los datos ingresados en una base de datos que luego podrán ser recuperados a través de los botones de busqueda explicitados en el paso 2.
 5. Tanto al registrarse, como al iniciar sesion o crear una nueva publicacion, se mostrará una página que marca el correcto ingreso de los datos, si algún error ocurriese, se dejaría ver en el mismo formulario.
+6. A la sección para crear el perfil solo se podrá acceder luego de iniciar sesión, si se quiere acceder a dicho formulario puede usarse, una vez levantado el servidor local, la siguiente dirección url:
+'''
+usuarios/crear_perfil/
+'''
